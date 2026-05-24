@@ -7,11 +7,36 @@ import { getCategorias } from '@/services/categoriaService'
 
 import Mapa from '@/components/Mapa.vue'
 
+import vueFilePond from "vue-filepond";
+import "filepond/dist/filepond.min.css";
+
+import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+// Import image preview and file type validation plugins
+
+import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
+import FilePondPluginImagePreview from "filepond-plugin-image-preview";
+
+import establecimientoValidationSchema from '@/schemas/establecimientoValidationSchema'
+
+import { Form, Field, ErrorMessage } from 'vee-validate'
+
+
+import { createEstablecimiento } from '@/services/establecimientoService'
+
+import {notificacionToast, notificacionError} from '@/utils/alertUtil'
+
+
+// Create component
+const FilePond = vueFilePond(
+    FilePondPluginFileValidateType,
+    FilePondPluginImagePreview
+);
+
 const datosFormulario = reactive({
     nombre: '',
     descripcion: '',
     direccion: '',
-    imagen: '',
+    archivo_imagen: null,
     telefono: '',
     email: '',
     website: '',
@@ -20,8 +45,7 @@ const datosFormulario = reactive({
     latitud: '',
     longitud: '',
     estado: '',
-    categoria_id: '',
-    user_id: ''
+    categoria_id: 0,
 })
 
 const categorias = ref([])
@@ -37,20 +61,79 @@ const cargarCategorias = async () => {
 }
 
 
-const recibirCoordenadas = cords=> {
+const recibirCoordenadas = cords => {
 
 
     datosFormulario.latitud = cords.latitud
     datosFormulario.longitud = cords.longitud
 
 
-    console.log( "formulario:",  datosFormulario.latitud, datosFormulario.longitud);
+    console.log("formulario:", datosFormulario.latitud, datosFormulario.longitud);
+}
+
+
+const agregarArchivo = (error, file) => {
+    if (error) {
+
+        console.log("error:", error);
+
+        return
+    }
+
+    datosFormulario.archivo_imagen = file.file
+    console.log(datosFormulario.imagen);
+
+}
+
+const eliminarArchivo = (error, file) => {
+    if (error) {
+
+        console.log("error:", error);
+
+        return
+    }
+
+    datosFormulario.archivo_imagen = null
+
+}
+
+
+
+
+const guardarEstablecimiento = async () =>{
+
+    try {
+
+        const formData = new FormData();
+
+        for (const key in datosFormulario){
+            formData.append(key, datosFormulario[key])
+        } 
+
+        const resultado = await createEstablecimiento(formData)
+
+        console.log(resultado);
+        notificacionToast(resultado.message)
+
+    }catch (error) {
+        console.log("Error al guardar el establecimiento:", error.response);
+        notificacionError(error.response)
+    }finally {
+        // console.log("Formulario enviado:", datosFormulario);
+    }
+
+
+
 }
 
 
 onMounted(() => {
 
     cargarCategorias()
+
+
+    
+
 })
 
 
@@ -84,29 +167,35 @@ onMounted(() => {
                             <p>Los campos marcados con * son obligatorios</p>
                         </div>
                         <div class="auth-card-body">
-                            <form id="registerForm">
+                            <Form id="registerForm" :validation-schema="establecimientoValidationSchema"
+                                v-slot="{ errors }"  @submit="guardarEstablecimiento">
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="nombre" class="form-label">Nombre del Establecimiento <span
                                                 class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                            <input type="text" class="form-control" id="nombre" name="nombre"
-                                                placeholder="Nombre del Establecimiento">
+                                            <Field type="text" class="form-control"
+                                                :class="{ 'is-invalid': errors.nombre }" id="nombre" name="nombre"
+                                                placeholder="Nombre del Establecimiento"
+                                                v-model="datosFormulario.nombre" />
                                         </div>
+                                        <ErrorMessage name="nombre" class="small text-danger" />
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="categoria_id" class="form-label">Categoria <span
                                                 class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-text"><i class="fas fa-star"></i></span>
-                                            <select class="form-select" id="categoria_id" name="categoria_id" required>
+                                            <Field as="select" class="form-select" id="categoria_id" name="categoria_id"
+                                                v-model="datosFormulario.categoria_id" required>
                                                 <option :value="0" disabled selected>Seleccione una categoría</option>
                                                 <option v-for="categoria in categorias" :key="categoria.id"
                                                     :value="categoria.id"> {{ categoria.nombre }} </option>
-                                            </select>
-
+                                            </Field>
                                         </div>
+                                        <ErrorMessage name="categoria_id" class="small text-danger" />
+
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -114,66 +203,129 @@ onMounted(() => {
                                             class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                                        <input type="email" class="form-control" id="direccion" name="direccion"
-                                             >
+                                        <Field type="text" class="form-control" id="direccion" name="direccion"
+                                            :class="{ 'is-invalid': errors.nombre }"
+                                            v-model="datosFormulario.direccion" />
                                     </div>
+                                    <ErrorMessage name="direccion" class="small text-danger" />
+
                                 </div>
 
                                 <div class="mb-3">
                                     <Mapa @actualizar:coordenadas="recibirCoordenadas" />
+
+                                    <Field type="hidden" name="latitud" v-model="datosFormulario.latitud" />
+                                    <Field type="hidden" name="longitud" v-model="datosFormulario.longitud" />
+
+                                    <ErrorMessage name="longitud" class="small text-danger" />
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6  mb-3">
+                                        <label for="telefono" class="form-label">Numero de telefono <span
+                                                class="text-danger">*</span> </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                            <Field type="tel" class="form-control" id="telefono" name="telefono"
+                                                v-model="datosFormulario.telefono"
+                                                :class="{ 'is-invalid': errors.telefono }" />
+                                        </div>
+                                        <ErrorMessage name="telefono" class="small text-danger" />
+                                    </div>
+                                    <div class="col-md-6  mb-3">
+                                        <label for="email" class="form-label">Correo</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                            <Field type="email" class="form-control" id="email" name="email"
+                                                v-model="datosFormulario.email"
+                                                :class="{ 'is-invalid': errors.email }" />
+                                        </div>
+                                        <ErrorMessage name="email" class="small text-danger" />
+                                    </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="regPhone" class="form-label">Phone Number</label>
+                                    <label for="website" class="form-label">Sitio web </label>
                                     <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        <input type="tel" class="form-control" id="regPhone"
-                                            placeholder="Enter your phone number">
+                                        <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                                        <Field type="url" class="form-control" id="website" name="website"
+                                            v-model="datosFormulario.website"
+                                            :class="{ 'is-invalid': errors.website }" />
                                     </div>
+                                    <ErrorMessage name="website" class="small text-danger" />
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
-                                        <label for="regPassword" class="form-label">Password *</label>
+                                        <label for="horario_apertura" class="form-label">Hora Apertura <span
+                                                class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                            <input type="password" class="form-control" id="regPassword"
-                                                placeholder="Create password" required>
-                                            <button class="btn btn-toggle-password" type="button"
-                                                data-target="regPassword"><i class="fas fa-eye"></i></button>
+                                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                            <Field type="time" class="form-control" id="horario_apertura"
+                                                name="horario_apertura" required
+                                                v-model="datosFormulario.horario_apertura"
+                                                :class="{ 'is-invalid': errors.horario_apertura }" />
                                         </div>
+                                        <ErrorMessage name="horario_apertura" class="small text-danger" />
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label for="regConfirmPassword" class="form-label">Confirm Password *</label>
+                                        <label for="horario_cierre" class="form-label">Hora Cierre <span
+                                                class="text-danger">*</span> </label>
                                         <div class="input-group">
-                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                            <input type="password" class="form-control" id="regConfirmPassword"
-                                                placeholder="Confirm password" required>
-                                            <button class="btn btn-toggle-password" type="button"
-                                                data-target="regConfirmPassword"><i class="fas fa-eye"></i></button>
+                                            <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                                            <Field type="time" class="form-control" id="horario_cierre"
+                                                name="horario_cierre" required v-model="datosFormulario.horario_cierre"
+                                                :class="{ 'is-invalid': errors.horario_cierre }" />
+
                                         </div>
+                                        <ErrorMessage name="horario_cierre" class="small text-danger" />
                                     </div>
                                 </div>
-                                <div class="form-check mb-4">
-                                    <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-                                    <label class="form-check-label" for="agreeTerms">
-                                        I agree to the <a href="#" class="forgot-link">Terms & Conditions</a> and <a
-                                            href="#" class="forgot-link">Privacy Policy</a>
-                                    </label>
+
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+
+                                        <file-pond name="imagen"
+                                            label-idle="Arrastra y suelta tu imagen o haz <u>click</u> para seleccionar"
+                                            :allow-multiple="false" max-file-size="2MB" @addfile="agregarArchivo"
+                                            @removefile="eliminarArchivo"
+                                            accepted-file-types="image/png, image/jpeg, image/jpg, image/avif, image/webp" />
+                                    </div>
+
                                 </div>
-                                <button type="submit" class="btn btn-auth-submit w-100">CREATE ACCOUNT</button>
-                            </form>
 
-                            <div class="auth-divider">
-                                <span>or register with</span>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="descripcion" class="form-label">Descripcion <span
+                                            class="text-danger">*</span></label>
+                                    <div class="border rounded">
 
-                            <div class="social-login">
-                                <a href="#" class="btn-social btn-facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="btn-social btn-google"><i class="fab fa-google"></i></a>
-                                <a href="#" class="btn-social btn-twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="btn-social btn-linkedin"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                                        <Field as="textarea" name="descripcion" id="descripcion" class="form-control"
+                                            rows="5" v-model="datosFormulario.descripcion"
+                                            :class="{ 'is-invalid': errors.descripcion }"></Field>
+                                    </div>
+                                    <ErrorMessage name="descripcion" class="small text-danger" />
+                                </div>
 
-                            <p class="auth-footer-text">Already have an account? <a href="login.html">Login here</a></p>
+                                <div class="mb-4">
+                                    <div class="form-check ">
+                                        <Field class="form-check-input" name="terminos_condiciones" type="checkbox"
+                                            id="terminos_condiciones" :class="{ 'is-invalid': errors.terminos_condiciones }"
+                                             required :value="true" />
+                                        <label class="form-check-label" for="terminos_condiciones">
+                                            Acepto los <a href="#" class="forgot-link">Terminos & Condiciones</a> y la
+                                            <a href="#" class="forgot-link">Politica de Privacidad</a>
+                                        </label>
+                                    </div>
+                                    <ErrorMessage name="terminos_condiciones" class="small text-danger" />
+                                </div>
+
+
+                                <button type="submit" class=" btn-auth-submit w-100">
+                                    <i class="fas fa-save"></i>
+                                    Guardar
+
+                                </button>
+                            </Form>
+
                         </div>
                     </div>
                 </div>

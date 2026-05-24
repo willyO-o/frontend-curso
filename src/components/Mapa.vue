@@ -47,12 +47,35 @@ const iniciarMapa = () => {
     })
 }
 
+const obtenerUbicacion = () => {
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(posicion => {
+
+            const { latitude, longitude } = posicion.coords;
+
+            map.value.setView([latitude, longitude], 13);
+
+            if (marker.value) {
+                marker.value.setLatLng([latitude, longitude]);
+                emit('actualizar:coordenadas', {
+                    latitud: latitude,
+                    longitud: longitude
+                })
+            }
+        })
+    }
+
+}
+
 
 onMounted(() => {
 
     nextTick(() => {
         iniciarMapa();
     })
+
+    obtenerUbicacion()
 
 })
 

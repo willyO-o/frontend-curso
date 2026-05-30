@@ -10,6 +10,16 @@ export const getEstablecimientos = async (params={}) => {
 }
 
 
+
+export const getEstablecimientoId = async  id  => {
+    
+    const respuesta = await api.get('/establecimientos/'+ id)
+    return respuesta.data;
+    
+}
+
+
+
 export const createEstablecimiento = async datos => {
 
     const respuesta = await api.post('/establecimientos',datos)

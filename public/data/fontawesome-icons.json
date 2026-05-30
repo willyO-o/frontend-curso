@@ -1,0 +1,1443 @@
+[
+  {
+    "clase": "fas fa-address-book",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-address-card",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-anchor-circle-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-anchor-lock",
+    "palabras_clave": "bloquear, seguridad, candado, proteger, cerrado"
+  },
+  {
+    "clase": "fab fa-app-store",
+    "palabras_clave": "app, store"
+  },
+  {
+    "clase": "fab fa-app-store-ios",
+    "palabras_clave": "app, store, ios"
+  },
+  {
+    "clase": "fab fa-apper",
+    "palabras_clave": "apper"
+  },
+  {
+    "clase": "fas fa-area-chart",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-arrow-down-up-lock",
+    "palabras_clave": "bloquear, seguridad, candado, proteger, cerrado"
+  },
+  {
+    "clase": "fas fa-arrow-trend-down",
+    "palabras_clave": "flecha, dirección, navegación, siguiente, mover"
+  },
+  {
+    "clase": "fas fa-arrow-trend-up",
+    "palabras_clave": "flecha, dirección, navegación, siguiente, mover"
+  },
+  {
+    "clase": "fas fa-automobile",
+    "palabras_clave": "móvil, teléfono, celular, dispositivo, smartphone"
+  },
+  {
+    "clase": "fab fa-autoprefixer",
+    "palabras_clave": "autoprefixer"
+  },
+  {
+    "clase": "fas fa-baby-carriage",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-bag-shopping",
+    "palabras_clave": "compra, tienda, carrito, comercio, mercado"
+  },
+  {
+    "clase": "fas fa-bar-chart",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-bars",
+    "palabras_clave": "menú, navegación, listado, líneas, barras"
+  },
+  {
+    "clase": "fas fa-bars-progress",
+    "palabras_clave": "menú, navegación, listado, líneas, barras"
+  },
+  {
+    "clase": "fas fa-bars-staggered",
+    "palabras_clave": "menú, navegación, listado, líneas, barras"
+  },
+  {
+    "clase": "fas fa-baseball",
+    "palabras_clave": "baseball"
+  },
+  {
+    "clase": "fas fa-baseball-ball",
+    "palabras_clave": "baseball, ball"
+  },
+  {
+    "clase": "fas fa-baseball-bat-ball",
+    "palabras_clave": "baseball, bat, ball"
+  },
+  {
+    "clase": "fas fa-basket-shopping",
+    "palabras_clave": "compra, tienda, carrito, comercio, mercado"
+  },
+  {
+    "clase": "fas fa-battery-car",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-bell",
+    "palabras_clave": "notificación, campana, alerta, aviso, sonido"
+  },
+  {
+    "clase": "fas fa-bell-concierge",
+    "palabras_clave": "notificación, campana, alerta, aviso, sonido"
+  },
+  {
+    "clase": "fas fa-bell-slash",
+    "palabras_clave": "notificación, campana, alerta, aviso, sonido"
+  },
+  {
+    "clase": "fas fa-bicycle",
+    "palabras_clave": "bicicleta, deporte, transporte, ejercicio, movilidad"
+  },
+  {
+    "clase": "fas fa-birthday-cake",
+    "palabras_clave": "pastel, celebración, cumpleaños, festejo, dulce"
+  },
+  {
+    "clase": "fab fa-bitcoin",
+    "palabras_clave": "bitcoin"
+  },
+  {
+    "clase": "fas fa-bitcoin-sign",
+    "palabras_clave": "bitcoin, sign"
+  },
+  {
+    "clase": "fab fa-bluetooth",
+    "palabras_clave": "bluetooth"
+  },
+  {
+    "clase": "fab fa-bluetooth-b",
+    "palabras_clave": "bluetooth, b"
+  },
+  {
+    "clase": "fas fa-book",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-atlas",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-bible",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-dead",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-journal-whills",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-medical",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-open",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-open-reader",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-quran",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-reader",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-skull",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-book-tanakh",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-bridge-circle-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-bridge-lock",
+    "palabras_clave": "bloquear, seguridad, candado, proteger, cerrado"
+  },
+  {
+    "clase": "fas fa-briefcase-clock",
+    "palabras_clave": "reloj, hora, tiempo, temporizador, duración"
+  },
+  {
+    "clase": "fas fa-building",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-circle-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-building-circle-xmark",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-columns",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-flag",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-lock",
+    "palabras_clave": "bloquear, seguridad, candado, proteger, cerrado"
+  },
+  {
+    "clase": "fas fa-building-shield",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-un",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-building-user",
+    "palabras_clave": "usuario, perfil, personas, miembro, gente, trabajador"
+  },
+  {
+    "clase": "fas fa-building-wheat",
+    "palabras_clave": "edificio, empresa, compañía, oficina, ubicación"
+  },
+  {
+    "clase": "fas fa-bus",
+    "palabras_clave": "autobús, transporte, viaje, público, tranporte"
+  },
+  {
+    "clase": "fas fa-bus-simple",
+    "palabras_clave": "autobús, transporte, viaje, público, tranporte"
+  },
+  {
+    "clase": "fas fa-business-time",
+    "palabras_clave": "autobús, transporte, viaje, público, tranporte"
+  },
+  {
+    "clase": "fas fa-cable-car",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-cake",
+    "palabras_clave": "pastel, celebración, cumpleaños, festejo, dulce"
+  },
+  {
+    "clase": "fas fa-cake-candles",
+    "palabras_clave": "pastel, celebración, cumpleaños, festejo, dulce"
+  },
+  {
+    "clase": "fas fa-calendar",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-check",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-day",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-days",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-minus",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-plus",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-times",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-week",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fas fa-calendar-xmark",
+    "palabras_clave": "calendario, fecha, evento, cita, programación"
+  },
+  {
+    "clase": "fab fa-canadian-maple-leaf",
+    "palabras_clave": "mapa, ubicación, localización, posición, navegación"
+  },
+  {
+    "clase": "fas fa-car",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-battery",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-burst",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-crash",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-on",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-rear",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-car-tunnel",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caravan",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-down",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-left",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-right",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-square-down",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-square-left",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-square-right",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-square-up",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-caret-up",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-carriage-baby",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-carrot",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-cart-flatbed",
+    "palabras_clave": "carrito de compra, tienda, comercio, transacción"
+  },
+  {
+    "clase": "fas fa-cart-flatbed-suitcase",
+    "palabras_clave": "carrito de compra, tienda, comercio, transacción"
+  },
+  {
+    "clase": "fas fa-cart-shopping",
+    "palabras_clave": "carrito de compra, tienda, comercio, transacción"
+  },
+  {
+    "clase": "fab fa-cc-discover",
+    "palabras_clave": "cc, discover"
+  },
+  {
+    "clase": "fab fa-cc-mastercard",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fas fa-chalkboard-user",
+    "palabras_clave": "usuario, perfil, personas, miembro, gente, trabajador"
+  },
+  {
+    "clase": "fas fa-chart-area",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-chart-bar",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-chart-column",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-chart-line",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-chart-pie",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-chart-simple",
+    "palabras_clave": "gráfico, estadística, análisis, datos, estadísticas"
+  },
+  {
+    "clase": "fas fa-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-check-double",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-check-to-slot",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-chess-bishop",
+    "palabras_clave": "chess, bishop"
+  },
+  {
+    "clase": "fas fa-circle-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-circle-user",
+    "palabras_clave": "usuario, perfil, personas, miembro, gente, trabajador"
+  },
+  {
+    "clase": "fas fa-clapperboard",
+    "palabras_clave": "clapperboard"
+  },
+  {
+    "clase": "fas fa-clock",
+    "palabras_clave": "reloj, hora, tiempo, temporizador, duración"
+  },
+  {
+    "clase": "fas fa-clock-four",
+    "palabras_clave": "reloj, hora, tiempo, temporizador, duración"
+  },
+  {
+    "clase": "fas fa-clock-rotate-left",
+    "palabras_clave": "reloj, hora, tiempo, temporizador, duración"
+  },
+  {
+    "clase": "fas fa-cloud-arrow-down",
+    "palabras_clave": "flecha, dirección, navegación, siguiente, mover"
+  },
+  {
+    "clase": "fas fa-cloud-arrow-up",
+    "palabras_clave": "flecha, dirección, navegación, siguiente, mover"
+  },
+  {
+    "clase": "fas fa-cloud-download",
+    "palabras_clave": "descargar, guardar, descarga, archivo"
+  },
+  {
+    "clase": "fas fa-cloud-moon",
+    "palabras_clave": "luna, noche, oscuridad, sueño, cielo"
+  },
+  {
+    "clase": "fas fa-coffee",
+    "palabras_clave": "café, bebida, energía, descanso, mañana"
+  },
+  {
+    "clase": "fas fa-cog",
+    "palabras_clave": "engranaje, configuración, opciones, herramienta, ajuste"
+  },
+  {
+    "clase": "fas fa-cogs",
+    "palabras_clave": "engranaje, configuración, opciones, herramienta, ajuste"
+  },
+  {
+    "clase": "fas fa-comment-sms",
+    "palabras_clave": "comment, sms"
+  },
+  {
+    "clase": "fas fa-computer-mouse",
+    "palabras_clave": "computer, mouse"
+  },
+  {
+    "clase": "fas fa-concierge-bell",
+    "palabras_clave": "notificación, campana, alerta, aviso, sonido"
+  },
+  {
+    "clase": "fas fa-contact-book",
+    "palabras_clave": "libro, lectura, educación, conocimiento, biblioteca"
+  },
+  {
+    "clase": "fas fa-contact-card",
+    "palabras_clave": "coche, vehículo, transporte, automóvil, conducción"
+  },
+  {
+    "clase": "fab fa-cpanel",
+    "palabras_clave": "cpanel"
+  },
+  {
+    "clase": "fas fa-credit-card",
+    "palabras_clave": "editar, modificar, lápiz, cambiar, actualizar"
+  },
+  {
+    "clase": "fas fa-database",
+    "palabras_clave": "base de datos, datos, almacenamiento, información"
+  },
+  {
+    "clase": "fas fa-diagram-predecessor",
+    "palabras_clave": "diagram, predecessor"
+  },
+  {
+    "clase": "fab fa-digital-ocean",
+    "palabras_clave": "digital, ocean"
+  },
+  {
+    "clase": "fas fa-digital-tachograph",
+    "palabras_clave": "digital, tachograph"
+  },
+  {
+    "clase": "fab fa-discourse",
+    "palabras_clave": "discourse"
+  },
+  {
+    "clase": "fas fa-download",
+    "palabras_clave": "descargar, guardar, descarga, archivo"
+  },
+  {
+    "clase": "fab fa-draft2digital",
+    "palabras_clave": "draft2digital"
+  },
+  {
+    "clase": "fas fa-drum-steelpan",
+    "palabras_clave": "drum, steelpan"
+  },
+  {
+    "clase": "fas fa-dumbbell",
+    "palabras_clave": "notificación, campana, alerta, aviso, sonido"
+  },
+  {
+    "clase": "fas fa-earth-europe",
+    "palabras_clave": "earth, europe"
+  },
+  {
+    "clase": "fas fa-edit",
+    "palabras_clave": "editar, modificar, lápiz, cambiar, actualizar"
+  },
+  {
+    "clase": "fab fa-ethereum",
+    "palabras_clave": "ethereum"
+  },
+  {
+    "clase": "fas fa-euro",
+    "palabras_clave": "euro"
+  },
+  {
+    "clase": "fas fa-euro-sign",
+    "palabras_clave": "euro, sign"
+  },
+  {
+    "clase": "fas fa-expand",
+    "palabras_clave": "expand"
+  },
+
+  {
+    "clase": "fab fa-expeditedssl",
+    "palabras_clave": "editar, modificar, lápiz, cambiar, actualizar"
+  },
+  {
+    "clase": "fas fa-external-link",
+    "palabras_clave": "vinculo, hipervinculo, conexión, enlace, referencia"
+  },
+  {
+    "clase": "fas fa-external-link-square",
+    "palabras_clave": "vinculo, hipervinculo, conexión, enlace, referencia"
+  },
+  {
+    "clase": "fas fa-face-grin-hearts",
+    "palabras_clave": "corazón, amor, sentimiento, favorito, emoción"
+  },
+  {
+    "clase": "fas fa-face-grin-stars",
+    "palabras_clave": "estrella, calidad, destacado, puntuación, premio"
+  },
+  {
+    "clase": "fas fa-face-kiss-wink-heart",
+    "palabras_clave": "corazón, amor, sentimiento, favorito, emoción"
+  },
+  {
+    "clase": "fas fa-face-laugh",
+    "palabras_clave": "risa, diversión, alegría, humor, felicidad"
+  },
+  {
+    "clase": "fas fa-face-laugh-beam",
+    "palabras_clave": "risa, diversión, alegría, humor, felicidad"
+  },
+  {
+    "clase": "fas fa-face-laugh-squint",
+    "palabras_clave": "risa, diversión, alegría, humor, felicidad"
+  },
+  {
+    "clase": "fas fa-face-laugh-wink",
+    "palabras_clave": "risa, diversión, alegría, humor, felicidad"
+  },
+  {
+    "clase": "fas fa-face-sad-cry",
+    "palabras_clave": "tristeza, depresión, infelicidad, negativo, dolor"
+  },
+  {
+    "clase": "fas fa-face-sad-tear",
+    "palabras_clave": "tristeza, depresión, infelicidad, negativo, dolor"
+  },
+  {
+    "clase": "fas fa-face-tired",
+    "palabras_clave": "face, tired"
+  },
+  {
+    "clase": "fas fa-fax",
+    "palabras_clave": "fax"
+  },
+  {
+    "clase": "fas fa-file",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-archive",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-audio",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-circle-check",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-file-circle-xmark",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-contract",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-download",
+    "palabras_clave": "descargar, guardar, descarga, archivo"
+  },
+  {
+    "clase": "fas fa-file-edit",
+    "palabras_clave": "editar, modificar, lápiz, cambiar, actualizar"
+  },
+  {
+    "clase": "fas fa-file-excel",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-export",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-image",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-import",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-invoice",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-invoice-dollar",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-lines",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-medical",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-pdf",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-pen",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-powerpoint",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-prescription",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-shield",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-signature",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-text",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-waveform",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-word",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-file-zipper",
+    "palabras_clave": "archivo, documento, fichero, archivo, datos"
+  },
+  {
+    "clase": "fas fa-fingerprint",
+    "palabras_clave": "imprimir, impresora, documento, salida, impresión"
+  },
+  {
+    "clase": "fas fa-flag-checkered",
+    "palabras_clave": "verificar, correcto, completar, ok, confirmación"
+  },
+  {
+    "clase": "fas fa-florin-sign",
+    "palabras_clave": "florin, sign"
+  },
+  {
+    "clase": "fas fa-folder",
+    "palabras_clave": "carpeta, directorio, contenedor, almacenamiento"
+  },
+  {
+    "clase": "fas fa-folder-blank",
+    "palabras_clave": "carpeta, directorio, contenedor, almacenamiento"
+  },
+  {
+    "clase": "fas fa-folder-open",
+    "palabras_clave": "carpeta, directorio, contenedor, almacenamiento"
+  },
+  {
+    "clase": "fas fa-folder-tree",
+    "palabras_clave": "carpeta, directorio, contenedor, almacenamiento"
+  },
+  {
+    "clase": "fas fa-futbol",
+    "palabras_clave": "futbol"
+  },
+  {
+    "clase": "fas fa-futbol-ball",
+    "palabras_clave": "futbol, ball"
+  },
+  {
+    "clase": "fas fa-gamepad",
+    "palabras_clave": "gamepad"
+  },
+  {
+    "clase": "fas fa-gear",
+    "palabras_clave": "rueda, engranaje, herramientas, mecanismo, sistema"
+  },
+  {
+    "clase": "fas fa-gears",
+    "palabras_clave": "rueda, engranaje, herramientas, mecanismo, sistema"
+  },
+  {
+    "clase": "fas fa-gift",
+    "palabras_clave": "regalo, presente, obsequio, celebración, sorpresa"
+  },
+  {
+    "clase": "fas fa-gifts",
+    "palabras_clave": "regalo, presente, obsequio, celebración, sorpresa"
+  },
+  {
+    "clase": "fas fa-globe-europe",
+    "palabras_clave": "globe, europe"
+  },
+  {
+    "clase": "fas fa-graduation-cap",
+    "palabras_clave": "graduación, educación, certificado, diploma, logro"
+  },
+  {
+    "clase": "fab fa-angrycreative",
+    "palabras_clave": "angrycreative, comida, alimento"
+  },
+  {
+    "clase": "fab fa-apple",
+    "palabras_clave": "manzana, fruta, saludable, orgánico, nutrición"
+  },
+  {
+    "clase": "fas fa-apple-alt",
+    "palabras_clave": "manzana, fruta, saludable, orgánico, nutrición"
+  },
+  {
+    "clase": "fab fa-apple-pay",
+    "palabras_clave": "manzana, fruta, saludable, orgánico, nutrición"
+  },
+  {
+    "clase": "fas fa-apple-whole",
+    "palabras_clave": "manzana, fruta, saludable, orgánico, nutrición"
+  },
+  {
+    "clase": "fas fa-arrow-up-from-ground-water",
+    "palabras_clave": "arrow, up, from, ground, water, comida, alimento"
+  },
+  {
+    "clase": "fas fa-arrow-up-from-water-pump",
+    "palabras_clave": "arrow, up, from, water, pump, comida, alimento"
+  },
+  {
+    "clase": "fas fa-barcode",
+    "palabras_clave": "barcode, comida, alimento"
+  },
+  {
+    "clase": "fas fa-beer",
+    "palabras_clave": "cerveza, bebida alcohólica, alcohol, bar, pub"
+  },
+  {
+    "clase": "fas fa-beer-mug-empty",
+    "palabras_clave": "cerveza, bebida alcohólica, alcohol, bar, pub"
+  },
+  {
+    "clase": "fas fa-bottle-droplet",
+    "palabras_clave": "bottle, droplet, comida, alimento"
+  },
+  {
+    "clase": "fas fa-bottle-water",
+    "palabras_clave": "agua, botella, bebida, hidratación, plástico"
+  },
+  {
+    "clase": "fas fa-bowl-food",
+    "palabras_clave": "cuenco, bol, recipiente, comida, servido"
+  },
+  {
+    "clase": "fas fa-bread-slice",
+    "palabras_clave": "pan, carbohidrato, harina, horneado, alimento"
+  },
+  {
+    "clase": "fas fa-bridge-water",
+    "palabras_clave": "bridge, water, comida, alimento"
+  },
+  {
+    "clase": "fab fa-cc-apple-pay",
+    "palabras_clave": "manzana, fruta, saludable, orgánico, nutrición"
+  },
+  {
+    "clase": "fas fa-chalkboard-teacher",
+    "palabras_clave": "chalkboard, teacher, comida, alimento"
+  },
+  {
+    "clase": "fas fa-champagne-glasses",
+    "palabras_clave": "champagne, glasses, comida, alimento"
+  },
+  {
+    "clase": "fas fa-cheese",
+    "palabras_clave": "cheese, comida, alimento"
+  },
+  {
+    "clase": "fas fa-circle-dollar-to-slot",
+    "palabras_clave": "circle, dollar, to, slot, comida, alimento"
+  },
+  {
+    "clase": "fas fa-cloud-meatball",
+    "palabras_clave": "cloud, meatball, comida, alimento"
+  },
+  {
+    "clase": "fas fa-cloud-showers-water",
+    "palabras_clave": "cloud, showers, water, comida, alimento"
+  },
+  {
+    "clase": "fas fa-code-fork",
+    "palabras_clave": "tenedor, utensilio, cubierto, comida, servicio"
+  },
+  {
+    "clase": "fas fa-comment-dollar",
+    "palabras_clave": "comment, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-comments-dollar",
+    "palabras_clave": "comments, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-cookie",
+    "palabras_clave": "galleta, postre, dulce, chocolate, merienda"
+  },
+  {
+    "clase": "fas fa-cookie-bite",
+    "palabras_clave": "galleta, postre, dulce, chocolate, merienda"
+  },
+  {
+    "clase": "fab fa-creative-commons",
+    "palabras_clave": "creative, commons, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-by",
+    "palabras_clave": "creative, commons, by, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-nc",
+    "palabras_clave": "creative, commons, nc, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-nc-eu",
+    "palabras_clave": "creative, commons, nc, eu, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-nc-jp",
+    "palabras_clave": "creative, commons, nc, jp, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-nd",
+    "palabras_clave": "creative, commons, nd, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-pd",
+    "palabras_clave": "creative, commons, pd, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-pd-alt",
+    "palabras_clave": "creative, commons, pd, alt, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-remix",
+    "palabras_clave": "creative, commons, remix, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-sa",
+    "palabras_clave": "creative, commons, sa, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-sampling",
+    "palabras_clave": "creative, commons, sampling, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-sampling-plus",
+    "palabras_clave": "creative, commons, sampling, plus, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-share",
+    "palabras_clave": "creative, commons, share, comida, alimento"
+  },
+  {
+    "clase": "fab fa-creative-commons-zero",
+    "palabras_clave": "creative, commons, zero, comida, alimento"
+  },
+  {
+    "clase": "fab fa-cuttlefish",
+    "palabras_clave": "cuttlefish, comida, alimento"
+  },
+  {
+    "clase": "fas fa-dollar",
+    "palabras_clave": "dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-dollar-sign",
+    "palabras_clave": "dollar, sign, comida, alimento"
+  },
+  {
+    "clase": "fas fa-egg",
+    "palabras_clave": "huevo, proteína, desayuno, alimento, blanco"
+  },
+  {
+    "clase": "fas fa-expand-alt",
+    "palabras_clave": "expand, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-expand-arrows-alt",
+    "palabras_clave": "expand, arrows, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-face-grin-beam-sweat",
+    "palabras_clave": "face, grin, beam, sweat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-face-grin-squint-tears",
+    "palabras_clave": "face, grin, squint, tears, comida, alimento"
+  },
+  {
+    "clase": "fas fa-face-grin-tears",
+    "palabras_clave": "face, grin, tears, comida, alimento"
+  },
+  {
+    "clase": "fas fa-feather",
+    "palabras_clave": "feather, comida, alimento"
+  },
+  {
+    "clase": "fas fa-feather-alt",
+    "palabras_clave": "feather, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-feather-pointed",
+    "palabras_clave": "feather, pointed, comida, alimento"
+  },
+  {
+    "clase": "fas fa-filter-circle-dollar",
+    "palabras_clave": "filter, circle, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-fish",
+    "palabras_clave": "fish, comida, alimento"
+  },
+  {
+    "clase": "fas fa-fish-fins",
+    "palabras_clave": "fish, fins, comida, alimento"
+  },
+  {
+    "clase": "fas fa-funnel-dollar",
+    "palabras_clave": "funnel, dollar, comida, alimento"
+  },
+  {
+    "clase": "fab fa-galactic-republic",
+    "palabras_clave": "galactic, republic, comida, alimento"
+  },
+  {
+    "clase": "fas fa-glass-cheers",
+    "palabras_clave": "glass, cheers, comida, alimento"
+  },
+  {
+    "clase": "fas fa-glass-martini",
+    "palabras_clave": "martini, bebida, cóctel, vidrio, festejo"
+  },
+  {
+    "clase": "fas fa-glass-martini-alt",
+    "palabras_clave": "martini, bebida, cóctel, vidrio, festejo"
+  },
+  {
+    "clase": "fas fa-glass-water",
+    "palabras_clave": "agua, bebida, hidratación, transparente, vidrio"
+  },
+  {
+    "clase": "fas fa-glass-water-droplet",
+    "palabras_clave": "agua, bebida, hidratación, transparente, vidrio"
+  },
+  {
+    "clase": "fas fa-glass-whiskey",
+    "palabras_clave": "glass, whiskey, comida, alimento"
+  },
+  {
+    "clase": "fas fa-glasses",
+    "palabras_clave": "glasses, comida, alimento"
+  },
+  {
+    "clase": "fas fa-greater-than",
+    "palabras_clave": "greater, than, comida, alimento"
+  },
+  {
+    "clase": "fas fa-greater-than-equal",
+    "palabras_clave": "greater, than, equal, comida, alimento"
+  },
+  {
+    "clase": "fas fa-grin-beam-sweat",
+    "palabras_clave": "grin, beam, sweat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-grin-squint-tears",
+    "palabras_clave": "grin, squint, tears, comida, alimento"
+  },
+  {
+    "clase": "fas fa-grin-tears",
+    "palabras_clave": "grin, tears, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hamburger",
+    "palabras_clave": "hamburguesa, comida rápida, sándwich, carne, pan"
+  },
+  {
+    "clase": "fas fa-hand-holding-dollar",
+    "palabras_clave": "hand, holding, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hand-holding-water",
+    "palabras_clave": "hand, holding, water, comida, alimento"
+  },
+  {
+    "clase": "fas fa-heartbeat",
+    "palabras_clave": "heartbeat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass",
+    "palabras_clave": "hourglass, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-1",
+    "palabras_clave": "hourglass, 1, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-2",
+    "palabras_clave": "hourglass, 2, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-3",
+    "palabras_clave": "hourglass, 3, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-empty",
+    "palabras_clave": "hourglass, empty, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-end",
+    "palabras_clave": "hourglass, end, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-half",
+    "palabras_clave": "hourglass, half, comida, alimento"
+  },
+  {
+    "clase": "fas fa-hourglass-start",
+    "palabras_clave": "hourglass, start, comida, alimento"
+  },
+  {
+    "clase": "fas fa-house-flood-water",
+    "palabras_clave": "house, flood, water, comida, alimento"
+  },
+  {
+    "clase": "fas fa-house-flood-water-circle-arrow-right",
+    "palabras_clave": "house, flood, water, circle, arrow, right, comida, alimento"
+  },
+  {
+    "clase": "fab fa-hubspot",
+    "palabras_clave": "hubspot, comida, alimento"
+  },
+  {
+    "clase": "fas fa-ice-cream",
+    "palabras_clave": "helado, postre, frío, verano, dulce"
+  },
+  {
+    "clase": "fas fa-jar-wheat",
+    "palabras_clave": "jar, wheat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-kitchen-set",
+    "palabras_clave": "utensilios de cocina, equipamiento, cocinar, herramientas"
+  },
+  {
+    "clase": "fas fa-ladder-water",
+    "palabras_clave": "ladder, water, comida, alimento"
+  },
+  {
+    "clase": "fab fa-leanpub",
+    "palabras_clave": "leanpub, comida, alimento"
+  },
+  {
+    "clase": "fas fa-lemon",
+    "palabras_clave": "limón, cítrico, amarillo, ácido, fruta"
+  },
+  {
+    "clase": "fas fa-magnifying-glass",
+    "palabras_clave": "magnifying, glass, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-arrow-right",
+    "palabras_clave": "magnifying, glass, arrow, right, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-chart",
+    "palabras_clave": "magnifying, glass, chart, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-dollar",
+    "palabras_clave": "magnifying, glass, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-location",
+    "palabras_clave": "magnifying, glass, location, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-minus",
+    "palabras_clave": "magnifying, glass, minus, comida, alimento"
+  },
+  {
+    "clase": "fas fa-magnifying-glass-plus",
+    "palabras_clave": "magnifying, glass, plus, comida, alimento"
+  },
+  {
+    "clase": "fas fa-martini-glass",
+    "palabras_clave": "martini, bebida, cóctel, vidrio, festejo"
+  },
+  {
+    "clase": "fas fa-martini-glass-citrus",
+    "palabras_clave": "martini, bebida, cóctel, vidrio, festejo"
+  },
+  {
+    "clase": "fas fa-martini-glass-empty",
+    "palabras_clave": "martini, bebida, cóctel, vidrio, festejo"
+  },
+  {
+    "clase": "fas fa-masks-theater",
+    "palabras_clave": "masks, theater, comida, alimento"
+  },
+  {
+    "clase": "fas fa-money-bill-wheat",
+    "palabras_clave": "money, bill, wheat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-money-check-dollar",
+    "palabras_clave": "money, check, dollar, comida, alimento"
+  },
+  {
+    "clase": "fab fa-old-republic",
+    "palabras_clave": "old, republic, comida, alimento"
+  },
+  {
+    "clase": "fas fa-panorama",
+    "palabras_clave": "panorama, comida, alimento"
+  },
+  {
+    "clase": "fas fa-pizza-slice",
+    "palabras_clave": "pizza, comida, italiana, queso, tomate"
+  },
+  {
+    "clase": "fas fa-plate-wheat",
+    "palabras_clave": "plato, comida, servido, vajilla, cerámica"
+  },
+  {
+    "clase": "fas fa-prescription-bottle",
+    "palabras_clave": "prescription, bottle, comida, alimento"
+  },
+  {
+    "clase": "fas fa-prescription-bottle-alt",
+    "palabras_clave": "prescription, bottle, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-prescription-bottle-medical",
+    "palabras_clave": "prescription, bottle, medical, comida, alimento"
+  },
+  {
+    "clase": "fas fa-repeat",
+    "palabras_clave": "repeat, comida, alimento"
+  },
+  {
+    "clase": "fas fa-republican",
+    "palabras_clave": "republican, comida, alimento"
+  },
+  {
+    "clase": "fas fa-road-barrier",
+    "palabras_clave": "road, barrier, comida, alimento"
+  },
+  {
+    "clase": "fas fa-sack-dollar",
+    "palabras_clave": "sack, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-sad-tear",
+    "palabras_clave": "sad, tear, comida, alimento"
+  },
+  {
+    "clase": "fas fa-search-dollar",
+    "palabras_clave": "search, dollar, comida, alimento"
+  },
+  {
+    "clase": "fas fa-solar-panel",
+    "palabras_clave": "solar, panel, comida, alimento"
+  },
+  {
+    "clase": "fas fa-spoon",
+    "palabras_clave": "cuchara, utensilio, cubierto, comida, servicio"
+  },
+  {
+    "clase": "fab fa-spotify",
+    "palabras_clave": "spotify, comida, alimento"
+  },
+  {
+    "clase": "fab fa-square-steam",
+    "palabras_clave": "square, steam, comida, alimento"
+  },
+  {
+    "clase": "fab fa-steam",
+    "palabras_clave": "steam, comida, alimento"
+  },
+  {
+    "clase": "fab fa-steam-square",
+    "palabras_clave": "steam, square, comida, alimento"
+  },
+  {
+    "clase": "fab fa-steam-symbol",
+    "palabras_clave": "steam, symbol, comida, alimento"
+  },
+  {
+    "clase": "fas fa-store",
+    "palabras_clave": "store, comida, alimento"
+  },
+  {
+    "clase": "fas fa-store-alt",
+    "palabras_clave": "store, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-store-alt-slash",
+    "palabras_clave": "store, alt, slash, comida, alimento"
+  },
+  {
+    "clase": "fas fa-store-slash",
+    "palabras_clave": "store, slash, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table",
+    "palabras_clave": "table, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-cells",
+    "palabras_clave": "table, cells, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-cells-large",
+    "palabras_clave": "table, cells, large, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-columns",
+    "palabras_clave": "table, columns, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-list",
+    "palabras_clave": "table, list, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-tennis",
+    "palabras_clave": "table, tennis, comida, alimento"
+  },
+  {
+    "clase": "fas fa-table-tennis-paddle-ball",
+    "palabras_clave": "table, tennis, paddle, ball, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablet",
+    "palabras_clave": "tablet, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablet-alt",
+    "palabras_clave": "tablet, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablet-android",
+    "palabras_clave": "tablet, android, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablet-button",
+    "palabras_clave": "tablet, button, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablet-screen-button",
+    "palabras_clave": "tablet, screen, button, comida, alimento"
+  },
+  {
+    "clase": "fas fa-tablets",
+    "palabras_clave": "tablets, comida, alimento"
+  },
+  {
+    "clase": "fas fa-teamspeak",
+    "palabras_clave": "teamspeak, comida, alimento"
+  },
+  {
+    "clase": "fas fa-theater-masks",
+    "palabras_clave": "theater, masks, comida, alimento"
+  },
+  {
+    "clase": "fas fa-toilet-portable",
+    "palabras_clave": "toilet, portable, comida, alimento"
+  },
+  {
+    "clase": "fas fa-toilets-portable",
+    "palabras_clave": "toilets, portable, comida, alimento"
+  },
+  {
+    "clase": "fas fa-trash-restore",
+    "palabras_clave": "trash, restore, comida, alimento"
+  },
+  {
+    "clase": "fas fa-trash-restore-alt",
+    "palabras_clave": "trash, restore, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-user-astronaut",
+    "palabras_clave": "user, astronaut, comida, alimento"
+  },
+  {
+    "clase": "fas fa-utensil-spoon",
+    "palabras_clave": "cuchara, utensilio, cubierto, comida, servicio"
+  },
+  {
+    "clase": "fas fa-utensils",
+    "palabras_clave": "utensilios, cubiertos, comida, servicio, vajilla"
+  },
+  {
+    "clase": "fas fa-water",
+    "palabras_clave": "water, comida, alimento"
+  },
+  {
+    "clase": "fas fa-water-ladder",
+    "palabras_clave": "water, ladder, comida, alimento"
+  },
+  {
+    "clase": "fas fa-wheat-alt",
+    "palabras_clave": "wheat, alt, comida, alimento"
+  },
+  {
+    "clase": "fas fa-wheat-awn",
+    "palabras_clave": "wheat, awn, comida, alimento"
+  },
+  {
+    "clase": "fas fa-wheat-awn-circle-exclamation",
+    "palabras_clave": "wheat, awn, circle, exclamation, comida, alimento"
+  },
+  {
+    "clase": "fas fa-whiskey-glass",
+    "palabras_clave": "whiskey, glass, comida, alimento"
+  },
+  {
+    "clase": "fas fa-window-restore",
+    "palabras_clave": "window, restore, comida, alimento"
+  },
+  {
+    "clase": "fas fa-wine-bottle",
+    "palabras_clave": "vino, bebida alcohólica, alcohol, copa, viña"
+  },
+  {
+    "clase": "fas fa-wine-glass",
+    "palabras_clave": "vino, bebida alcohólica, alcohol, copa, viña"
+  },
+  {
+    "clase": "fas fa-wine-glass-alt",
+    "palabras_clave": "vino, bebida alcohólica, alcohol, copa, viña"
+  },
+  {
+    "clase": "fas fa-wine-glass-empty",
+    "palabras_clave": "vino, bebida alcohólica, alcohol, copa, viña"
+  }
+]

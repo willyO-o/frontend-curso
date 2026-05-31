@@ -1,6 +1,72 @@
 <script setup>
 
-import Mapa from '@/components/Mapa.vue';
+
+import MapaBanner from '@/components/MapaBanner.vue';
+
+import { ref, onMounted, } from 'vue';
+
+import { getEstablecimientos } from '@/services/establecimientoService'
+import { getCategorias } from '@/services/categoriaService'
+import Tarjeta from '@/components/Tarjeta.vue';
+import TarjetaPlaceholder from '@/components/TarjetaPlaceholder.vue';
+
+
+
+const establecimientos = ref([])
+
+const categorias = ref([])
+
+const cargando = ref(false)
+
+const parametrosBusqueda = ref({
+    search: '',
+    categoria_id: null,
+    per_page: 6,
+    page: 1
+})
+
+
+const totalResultados = ref(0)
+
+
+
+const cargarCategorias = async () => {
+    const resultado = await getCategorias()
+
+    categorias.value = resultado.data
+}
+
+
+const cargarEstablecimientos = async () => {
+
+
+    establecimientos.value = []
+    cargando.value = true;
+    const resultado = await getEstablecimientos(parametrosBusqueda.value)
+
+    establecimientos.value = resultado.data
+
+    totalResultados.value = resultado.total
+
+    cargando.value = false;
+
+}
+
+
+const filtrarEstablecimientos = idCategoria => {
+
+    parametrosBusqueda.value.categoria_id = idCategoria;
+
+    cargarEstablecimientos()
+}
+
+onMounted(() => {
+
+    cargarCategorias();
+    cargarEstablecimientos()
+
+})
+
 
 
 
@@ -12,7 +78,7 @@ import Mapa from '@/components/Mapa.vue';
 
     <!-- ==================== MAP BANNER ==================== -->
 
-    <Mapa />
+    <MapaBanner />
 
 
 
@@ -48,7 +114,7 @@ import Mapa from '@/components/Mapa.vue';
 
     <!-- ==================== LISTING HEADER ==================== -->
     <div class="listing-header">
-        <h3>BUSINESS SERVICES \ INSURANCE <span>[52]</span></h3>
+        <h3>Establecimientos <span>[{{ totalResultados }}]</span></h3>
     </div>
 
     <!-- ==================== MAIN CONTENT ==================== -->
@@ -58,21 +124,22 @@ import Mapa from '@/components/Mapa.vue';
             <div class="col-lg-3 mb-4 anim fade-left">
                 <!-- Results bar (above sidebar on mobile) -->
                 <div class="results-bar d-lg-none">
-                    <div class="result-count">Your search returned <strong>52</strong> results</div>
+                    <div class="result-count">Tu busqueda obtuvo <strong>{{ totalResultados }}</strong> resultados</div>
                 </div>
                 <ul class="sidebar-categories">
-                    <li><a href="#" class="cat-all active"><i class="fas fa-th-large"></i> All Categories</a></li>
-                    <li><a href="#" class="cat-accommodation"><i class="fas fa-bed"></i> Accommodation</a></li>
-                    <li><a href="#" class="cat-business"><i class="fas fa-briefcase"></i> Business Services</a></li>
-                    <li><a href="#" class="cat-education"><i class="fas fa-graduation-cap"></i> Education & Learning</a>
+                    <li>
+                        <a @click="filtrarEstablecimientos(null)" href="javascript:void(0)" class="cat-all active">
+                            <i class="fas fa-th-large"></i> All Categories
+                        </a>
                     </li>
-                    <li><a href="#" class="cat-references"><i class="fas fa-bookmark"></i> References</a></li>
-                    <li><a href="#" class="cat-automotive"><i class="fas fa-car"></i> Automotive</a></li>
-                    <li><a href="#" class="cat-fitness"><i class="fas fa-heartbeat"></i> Fitness & Health</a></li>
-                    <li><a href="#" class="cat-sports"><i class="fas fa-futbol"></i> Sports & Adventure</a></li>
-                    <li><a href="#" class="cat-regional"><i class="fas fa-map-marker-alt"></i> Regional</a></li>
-                    <li><a href="#" class="cat-hotels"><i class="fas fa-plane"></i> Hotels & Travel</a></li>
-                    <li><a href="#" class="cat-technology"><i class="fas fa-microchip"></i> Technology</a></li>
+
+                    <li v-for="cat in categorias" :key="cat.id">
+                        <a href="javascript:void(0)" class="cat-accommodation" @click="filtrarEstablecimientos(cat.id)">
+                            <i :class="cat.icono"></i> {{ cat.nombre }}
+                        </a>
+                    </li>
+
+
                 </ul>
             </div>
 
@@ -80,7 +147,7 @@ import Mapa from '@/components/Mapa.vue';
             <div class="col-lg-9 anim fade-right anim-d2">
                 <!-- Results bar -->
                 <div class="results-bar d-none d-lg-flex">
-                    <div class="result-count">Your search returned <strong>52</strong> results</div>
+                    <div class="result-count">Tu búsqueda obtuvo <strong>{{ totalResultados }}</strong> resultados</div>
                     <div class="d-flex align-items-center gap-2">
                         <select class="sort-select">
                             <option>SORT RESULTS BY</option>
@@ -98,144 +165,23 @@ import Mapa from '@/components/Mapa.vue';
 
                 <!-- ROW 1 -->
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-automotive">AUTOMOTIVE</div>
-                                    <h5 class="card-title">Ridenow Sports</h5>
-                                    <p class="card-address">17202 N Cave Creek Rd, Phoenix, AZ 85032</p>
-                                </div>
-                            </div>
-                        </a>
+
+                    <Tarjeta v-for="item in establecimientos" :key="item.id" :establecimiento="item" />
+
+
+
+
+                    <TarjetaPlaceholder v-if="cargando" />
+                 
+        
+
+                    <div v-if="!cargando && establecimientos.length == 0">
+                        <p class="h3">No se encontraron establecimientos</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                    <span class="badge-featured">FEATURED</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-beauty">BEAUTY & SPA</div>
-                                    <h5 class="card-title">Amicus Hair and Beauty</h5>
-                                    <p class="card-address">5198 Macarthur Blvd NW Unit B, Washington, DC 20016</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                    <span class="badge-featured">FEATURED</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-entertainment">ENTERTAINMENT</div>
-                                    <h5 class="card-title">Blue Room Cinebar</h5>
-                                    <p class="card-address">2306 Almaden Road, San Jose, CA 95125</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
 
-                <!-- ROW 2 -->
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-music">MUSIC</div>
-                                    <h5 class="card-title">Zoom Melodey</h5>
-                                    <p class="card-address">2306 Almaden Road, San Jose, CA 95125</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                    <span class="badge-featured">FEATURED</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-travel">TRAVEL</div>
-                                    <h5 class="card-title">Skyware Journey</h5>
-                                    <p class="card-address">5198 Macarthur Blvd NW Unit B, Washington, DC 20016</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-education">EDUCATION</div>
-                                    <h5 class="card-title">Sam Tutor Center</h5>
-                                    <p class="card-address">17202 N Cave Creek Rd, Phoenix, AZ 85032</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
-                <!-- ROW 3 -->
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-business">BUSINESS</div>
-                                    <h5 class="card-title">Associate Inc.</h5>
-                                    <p class="card-address">17202 N Cave Creek Rd, Phoenix, AZ 85032</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-technology">TECHNOLOGY</div>
-                                    <h5 class="card-title">Alitay Technologies</h5>
-                                    <p class="card-address">5198 Macarthur Blvd NW Unit B, Washington, DC 20016</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <a href="listing-detail.html" class="listing-card-link">
-                            <div class="listing-card">
-                                <div class="card-img-wrapper">
-                                    <img src="./img/placeholder.png" alt="Listing">
-                                </div>
-                                <div class="card-body">
-                                    <div class="card-category cat-woman">WOMAN</div>
-                                    <h5 class="card-title">Ghespoke Wear</h5>
-                                    <p class="card-address">2306 Almaden Road, San Jose, CA 95125</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
 
                 <!-- LOAD MORE -->
                 <div class="text-center mt-3 mb-4">
@@ -246,6 +192,6 @@ import Mapa from '@/components/Mapa.vue';
     </div>
 
 
-  
+
 
 </template>

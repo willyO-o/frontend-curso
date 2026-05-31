@@ -8,16 +8,23 @@ import Mapa from '@/components/Mapa.vue';
 import { useRoute } from 'vue-router';
 
 
-import { storeServicio } from '@/services/servicioService'
+import { storeServicio, deleteServicio, updateServicio } from '@/services/servicioService'
 
 import { Modal } from 'bootstrap';
 
 import IconPicker from '@/components/IconPicker.vue';
 
+import servicioValidationSchema from '@/schemas/servicioValidationSchema'
+
+import { Field, Form, ErrorMessage } from 'vee-validate'
+
+import { notificacionToast, notificacionError, confirmDialog } from '@/utils/alertUtil'
+
 const route = useRoute();
 const establecimiento = ref({
     latitud: 0,
     longitud: 0,
+    servicios: []
 });
 
 
@@ -66,27 +73,40 @@ const intervaloHora = setInterval(() => {
 // servicios
 
 const servicio = reactive({
-    establecimiento_id: '',
+    establecimiento_id: 0,
     nombre_servicio: '',
     descripcion_servicio: '',
     precio: '',
-    tipo: '',
+    tipo: 'PRODUCTO',
     icono: '',
-    disponible: ''
+    disponible: 1
 })
 
 const guardarServicio = async () => {
 
+    servicio.establecimiento_id = establecimiento.value.id;
 
+    let resultado = null;
     try {
 
-        const resultado = await storeServicio(servicio)
+        if (servicio.id) {
 
-        console.log('Servicio guardado:', resultado.data);
+            resultado = await updateServicio(servicio.id, servicio)
+            const item =  establecimiento.value.servicios.find(serv => serv.id == servicio.id)
+            Object.assign(item, resultado.data)
 
+        } else {
+            resultado = await storeServicio(servicio)
+
+            establecimiento.value.servicios.push(resultado.data)
+        }
+
+        modal.value.hide()
+
+        notificacionToast(resultado.message)
 
     } catch (error) {
-        console.log('Error al guardar el servicio:', error);
+        notificacionError(error.response)
     }
 
 
@@ -95,7 +115,27 @@ const guardarServicio = async () => {
 
 const modal = ref(null);
 
-const mostrarModal = () => {
+const mostrarModal = (item = null) => {
+
+
+    if (item) {
+        servicio.id = item.id;
+        servicio.nombre_servicio = item.nombre_servicio;
+        servicio.descripcion_servicio = item.descripcion_servicio;
+        servicio.precio = item.precio;
+        servicio.tipo = item.tipo;
+        servicio.icono = item.icono;
+        servicio.disponible = item.disponible;
+
+    } else {
+        servicio.id = null;
+        servicio.nombre_servicio = '';
+        servicio.descripcion_servicio = '';
+        servicio.precio = '';
+        servicio.tipo = 'PRODUCTO';
+        servicio.icono = '';
+        servicio.disponible = true;
+    }
 
     const modalElement = document.querySelector('#servicioModal');
 
@@ -111,10 +151,29 @@ const iconos = ref([]);
 
 const actualizarIcono = nuevoIcono => {
     servicio.icono = nuevoIcono;
-    console.log('Ícono actualizado:', servicio.icono);
-    
+
 }
 
+
+const eliminarServicio = async id => {
+
+    const confirmacion = await confirmDialog("Estas seguro?", "Desea Eliminar este servicio?")
+
+    if (!confirmacion) return;
+
+    try {
+
+        const resultado = await deleteServicio(id)
+
+        establecimiento.value.servicios = establecimiento.value.servicios.filter(serv => serv.id !== id)
+
+        notificacionToast(resultado.message)
+
+    } catch (error) {
+        notificacionError(error.response)
+    }
+
+}
 
 
 
@@ -123,14 +182,13 @@ onMounted(() => {
 
     cargarEstablecimientoId();
 
-    mostrarModal()
 
     fetch('/data/fontawesome-icons.json')
-    .then(response => response.json())
-    .then(data => {
-        iconos.value = data;
-     
-    })
+        .then(response => response.json())
+        .then(data => {
+            iconos.value = data;
+
+        })
 })
 
 onUnmounted(() => {
@@ -216,20 +274,35 @@ onUnmounted(() => {
                         Servicios / Productos
                     </h4>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+
+
+                        <div v-for="serv in establecimiento.servicios" :key="serv.id"
+                            class="col-md-6 mb-3 position-relative">
+                            <div class="position-absolute top-0 end-0 mt-1 me-4 z-3 gap-2 d-flex ">
+                                <a @click="mostrarModal(serv)" class="text-secondary" href="javascript:void(0)">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a @click="eliminarServicio(serv.id)" class="text-secondary" href="javascript:void(0)">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
                             <div class="service-card">
-                                <div class="service-icon"><i class="fas fa-motorcycle"></i></div>
+                                <div class="service-icon"><i :class="serv.icono"></i></div>
                                 <div class="service-info">
-                                    <h6>Motorcycle Sales</h6>
-                                    <p>Wide selection of new and pre-owned motorcycles from top brands.</p>
-                                    <span class="service-price">From $3,500</span>
+                                    <h6>{{ serv.nombre_servicio }}</h6>
+                                    <p> {{ serv.descripcion_servicio }}</p>
+                                    <span class="service-price">Bs. {{ serv.precio }}</span>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="col-md-12 p-5 text-center"v-if="establecimiento.servicios.length == 0" >
+                            <p>No hay servicios disponibles</p>
+                        </div>
+
 
                         <div class="col-md-6 mb-3">
-                            <a href="javascript:void(0)" class="text-decoration-none" @click="mostrarModal">
+                            <a href="javascript:void(0)" class="text-decoration-none" @click="mostrarModal()">
                                 <div class="service-card d-flex align-items-center justify-content-center">
                                     <div class="service-icon">
                                         <i class="fas fa-plus"></i>
@@ -407,7 +480,7 @@ onUnmounted(() => {
                     <h1 class="modal-title fs-5" id="servicioModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="registerForm">
+                <Form :validation-schema="servicioValidationSchema" @submit="guardarServicio" v-slot="{ errors }">
                     <div class="modal-body">
 
                         <div class="row">
@@ -418,9 +491,11 @@ onUnmounted(() => {
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fas fa-tag"></i></span>
-                                    <input type="text" class="form-control" id="nombre_servicio" name="nombre_servicio"
-                                        required>
+                                    <Field type="text" class="form-control" id="nombre_servicio" name="nombre_servicio"
+                                        required v-model="servicio.nombre_servicio"
+                                        :class="{ 'is-invalid': errors.nombre_servicio }" />
                                 </div>
+                                <ErrorMessage name="nombre_servicio" class="text-danger" />
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="precio" class="form-label">Precio
@@ -428,8 +503,11 @@ onUnmounted(() => {
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text">Bs.</span>
-                                    <input type="number" class="form-control" id="precio" name="precio" required>
+                                    <Field type="number" class="form-control" id="precio" name="precio"
+                                        v-model="servicio.precio" :class="{ 'is-invalid': errors.precio }" required />
                                 </div>
+                                <ErrorMessage name="precio" class="text-danger" />
+
                             </div>
                         </div>
                         <div class="mb-3">
@@ -437,9 +515,11 @@ onUnmounted(() => {
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="input-group">
-                                <textarea class="form-control" id="descripcion_servicio"
-                                    name="descripcion_servicio"></textarea>
+                                <Field as="textarea" class="form-control" id="descripcion_servicio"
+                                    name="descripcion_servicio" v-model="servicio.descripcion_servicio"
+                                    :class="{ 'is-invalid': errors.descripcion_servicio }"></Field>
                             </div>
+                            <ErrorMessage name="descripcion_servicio" class="text-danger" />
                         </div>
 
                         <div class="row">
@@ -449,12 +529,14 @@ onUnmounted(() => {
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                    <select name="tipo" id="tipo" class="form-select">
+                                    <Field as="select" name="tipo" id="tipo" class="form-select" v-model="servicio.tipo"
+                                        :class="{ 'is-invalid': errors.tipo }">
                                         <option value="PRODUCTO">Producto</option>
                                         <option value="SERVICIO">Servicio</option>
-                                    </select>
+                                    </Field>
 
                                 </div>
+                                <ErrorMessage name="tipo" class="text-danger" />
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="disponible" class="form-label">Disponible
@@ -462,11 +544,13 @@ onUnmounted(() => {
                                 </label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                    <select name="disponible" id="disponible" class="form-select">
-                                        <option :value="true">Activo</option>
-                                        <option :value="false">Inactivo</option>
-                                    </select>
+                                    <Field as="select" name="disponible" id="disponible" class="form-select"
+                                        v-model="servicio.disponible" :class="{ 'is-invalid': errors.disponible }">
+                                        <option :value="1">Activo</option>
+                                        <option :value="0">Inactivo</option>
+                                    </Field>
                                 </div>
+                                <ErrorMessage name="disponible" class="text-danger" />
                             </div>
                         </div>
 
@@ -475,10 +559,14 @@ onUnmounted(() => {
                             <label for="descripcion_servicio" class="form-label">Icono
                                 <span class="text-danger">*</span>
                             </label>
-                            <IconPicker  :icons="iconos" :modelValue="servicio.icono"
-                            
-                            @update:modelValue="actualizarIcono"/>
+                            <Field name="icono" v-slot="{ field }" v-model="servicio.icono">
+                                <IconPicker :icons="iconos" :modelValue="field.value"
+                                    @update:modelValue="actualizarIcono" />
+
+                            </Field>
+                            <ErrorMessage name="icono" class="text-danger" />
                         </div>
+
 
                     </div>
                     <div class="modal-footer">
@@ -488,7 +576,7 @@ onUnmounted(() => {
                             Guardar
                         </button>
                     </div>
-                </form>
+                </Form>
             </div>
         </div>
     </div>

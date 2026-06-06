@@ -6,18 +6,22 @@ import L from 'leaflet';
 
 const map = ref(null);
 
-const marker = ref(null);
 
 const emit = defineEmits(['actualizar:coordenadas']);
 
+const popupsMarcadores = ref({});
+
+const grupoMarcadores = ref(null);
+
 const props = defineProps({
-    coords: {
-        type: Object,
-        required: false,
+
+    establecimientos: {
+        type: Array,
+        required: true,
     },
-    draggable: {
-        type: Boolean,
-        default: true
+    coordenadasEnfoque: {
+        type: Object,
+        default: null
     }
 })
 
@@ -34,63 +38,77 @@ const iniciarMapa = () => {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map.value);
-    // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    //     maxZoom: 19,
-    //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    // }).addTo(map.value)
+
 
     setTimeout(() => {
         map.value.invalidateSize();
     }, 100);
 
 
-    marker.value = L.marker([-16.498200, -68.135580], { draggable: props.draggable }).addTo(map.value);
-
-    marker.value.on('dragend', function (e) {
-
-        const posicionActual = marker.value.getLatLng();
-
-        emit('actualizar:coordenadas', {
-            latitud: posicionActual.lat,
-            longitud: posicionActual.lng
-        })
-
-    })
-}
-
-const obtenerUbicacion = () => {
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(posicion => {
-
-            const { latitude, longitude } = posicion.coords;
-
-            map.value.setView([latitude, longitude], 13);
-
-            if (marker.value) {
-                marker.value.setLatLng([latitude, longitude]);
-                emit('actualizar:coordenadas', {
-                    latitud: latitude,
-                    longitud: longitude
-                })
-            }
-        })
-    }
-
 }
 
 
+const actualizarMarcadores = (listado) => {
 
-watch(() => props.coords, nuevasCoordenadas => {
+    if (!map.value) return;
 
-    console.log("nuevas coords", nuevasCoordenadas);
-    const { lat, lng } = nuevasCoordenadas;
-
-    map.value.setView([lat, lng], 13);
-    if (marker.value) {
-        marker.value.setLatLng([lat, lng]);
+    if (!grupoMarcadores.value) {
+        grupoMarcadores.value = L.layerGroup().addTo(map.value);
+    } else {
+        grupoMarcadores.value.clearLayers();
     }
+
+    listado.forEach(item => {
+
+        var myIcon = L.divIcon({
+            iconSize: [30,42],
+            iconAnchor: [15, 42],
+            // popupAnchor: [-3, -76],
+            // shadowSize: [68, 95],
+            // shadowAnchor: [22, 94],
+            html: /*html */ `
+               <div class="pin-marcador" >
+                <i class="${item.categoria.icono}"></i>
+                </div>
+            `
+        });
+
+        const popup =  /*html */ `
+            <b>${item.nombre} </b> <br>
+            <span> ${item.direccion} </span>
+        `
+
+        const marcador = L.marker([item.latitud, item.longitud], { icon:myIcon })
+        .addTo(grupoMarcadores.value)
+        .bindPopup(popup);
+
+
+
+        popupsMarcadores.value[item.id] = marcador
+
+    });
+
+
+}
+
+
+watch(() => props.establecimientos, nuevoListado => {
+    actualizarMarcadores(nuevoListado);
+}, { immediate: true })
+
+watch(() =>props.coordenadasEnfoque, nuevoEnfoque => {
+
+    if(nuevoEnfoque.latitud && nuevoEnfoque.longitud){
+        map.value.flyTo([nuevoEnfoque.latitud, nuevoEnfoque.longitud], 17)
+        popupsMarcadores.value[nuevoEnfoque.id].openPopup();
+
+    }
+
+
 })
+
+
+
 
 
 onMounted(() => {
@@ -99,9 +117,7 @@ onMounted(() => {
         iniciarMapa();
     })
 
-    if(props.draggable){
-        obtenerUbicacion()
-    }
+
 
 
 })
@@ -116,7 +132,7 @@ onMounted(() => {
 
     <section class="map-banner" id="mapBanner">
 
-        <div id="map-canvas"  :class="{'no-draggable': !props.draggable}" ></div>
+        <div id="map-canvas"></div>
 
         <button type="button" class="map-fullscreen-btn" id="mapToggleBtn" title="Toggle Fullscreen Map">
             <i class="fas fa-expand"></i>
@@ -131,9 +147,8 @@ onMounted(() => {
     min-height: 500px;
 }
 
-#map-canvas.no-draggable{
+#map-canvas.no-draggable {
 
     min-height: 200px;
 }
-
 </style>

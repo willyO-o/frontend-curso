@@ -11,10 +11,10 @@
             <div class="d-flex justify-content-between align-items-center">
                 <span>WELCOME TO THE WISEM LISTINGS</span>
                 <div class="d-flex align-items-center">
-                    <a href="login.html">LOGIN</a>
+                    <RouterLink :to="{name: 'Registro'}">LOGIN</RouterLink>
                     <span class="separator">|</span>
-                    <a href="register.html">REGISTER</a>
-                    <div class="currency-selector ms-4">
+                    <RouterLink :to="{name: 'Registro'}">REGISTRO</RouterLink>
+                    <div class="currency-selector ms-4 d-none">
                         <span class="active">$ USD</span>
                         <span>€ EUR</span>
                         <span>£ GBP</span>

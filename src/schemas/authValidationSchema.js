@@ -10,5 +10,11 @@ export const registroValidationSchema = yup.object({
 })
 
 
+export const loginValidationSchema = yup.object({
+    email: yup.string().required("Ingresa tu correo electrónico").email("El correo electrónico no es válido"),
+    password: yup.string().required("Ingresa tu contraseña")
+})
+
+
 
 

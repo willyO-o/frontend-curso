@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue';
 
-import { getEstablecimientoId } from '@/services/establecimientoService'
+import { getEstablecimientoIdPublic } from '@/services/establecimientoService'
 
 import Mapa from '@/components/Mapa.vue';
 
@@ -36,7 +36,7 @@ const cargarEstablecimientoId = async () => {
 
     const id = route.params.id;
 
-    const resultado = await getEstablecimientoId(id)
+    const resultado = await getEstablecimientoIdPublic(id)
 
     establecimiento.value = resultado.data
 

@@ -14,9 +14,14 @@ const router = createRouter({
       component: () => import("@/views/DetalleEstablecimiento.vue"),
     },
     {
-    path: "/registro",
+      path: "/registro",
       name: "Registro",
       component: () => import("@/views/Registro.vue"),
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import("@/views/Login.vue"),
     },
 
     {
@@ -25,8 +30,18 @@ const router = createRouter({
       component: () => import("@/views/admin/Admin.vue"),
       children: [
         {
+          path: "panel",
+          name: "Panel",
+          component: () => import("@/views/admin/Panel.vue")
+        },
+        {
           path: "establecimiento/crear",
           name: "CrearEstablecimiento",
+          component: () => import("@/views/admin/Formulario.vue"),
+        },
+        {
+          path: "establecimiento/:id/editar",
+          name: "EditarEstablecimiento",
           component: () => import("@/views/admin/Formulario.vue"),
         },
       ],

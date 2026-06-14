@@ -21,10 +21,15 @@ import establecimientoValidationSchema from '@/schemas/establecimientoValidation
 import { Form, Field, ErrorMessage } from 'vee-validate'
 
 
-import { createEstablecimiento } from '@/services/establecimientoService'
+import { createEstablecimiento, getEstablecimientoId } from '@/services/establecimientoService'
 
 import {notificacionToast, notificacionError} from '@/utils/alertUtil'
 
+import { useRoute } from 'vue-router';
+
+
+
+const route = useRoute();
 
 // Create component
 const FilePond = vueFilePond(
@@ -126,12 +131,32 @@ const guardarEstablecimiento = async () =>{
 
 }
 
+// edicion de establecimiento
+
+const imagenActual = ref('')
+const nuevasCoordenadas = ref({})
+
+
+const cargarEstablecimiento =  async () =>{
+
+    const idEstablecimientos= route.params.id;
+    const resultado = await getEstablecimientoId(idEstablecimientos)
+
+    Object.assign(datosFormulario, resultado.data)
+    imagenActual.value = resultado.data.url_imagen
+    nuevasCoordenadas.value.lat = resultado.data.latitud
+    nuevasCoordenadas.value.lng = resultado.data.longitud
+
+}
 
 onMounted(() => {
 
     cargarCategorias()
 
 
+    if(route.params.id){
+        cargarEstablecimiento()
+    }
     
 
 })
@@ -212,7 +237,8 @@ onMounted(() => {
                                 </div>
 
                                 <div class="mb-3">
-                                    <Mapa @actualizar:coordenadas="recibirCoordenadas" />
+                                    <Mapa @actualizar:coordenadas="recibirCoordenadas" 
+                                    :coords="nuevasCoordenadas"  />
 
                                     <Field type="hidden" name="latitud" v-model="datosFormulario.latitud" />
                                     <Field type="hidden" name="longitud" v-model="datosFormulario.longitud" />
@@ -282,13 +308,20 @@ onMounted(() => {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6" v-if="imagenActual">
+                                        <p>Imagen Actual:</p>
+                                        <img :src="imagenActual" alt="" class="img-fluid">
+                                    </div>
+                                    <div class=" mb-3" :class="{ 'col-md-6 pt-5': imagenActual, 'col-md-12': !imagenActual }">
 
                                         <file-pond name="imagen"
                                             label-idle="Arrastra y suelta tu imagen o haz <u>click</u> para seleccionar"
                                             :allow-multiple="false" max-file-size="2MB" @addfile="agregarArchivo"
                                             @removefile="eliminarArchivo"
                                             accepted-file-types="image/png, image/jpeg, image/jpg, image/avif, image/webp" />
+                                        <p v-if="imagenActual" class="text-muted small">
+                                            Si subes una nueva imagen, la actual será reemplazada.
+                                        </p>
                                     </div>
 
                                 </div>

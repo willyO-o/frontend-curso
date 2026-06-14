@@ -7,7 +7,7 @@ import { ref, onMounted, } from 'vue';
 import { useStorage } from '@vueuse/core'
 
 
-import { getEstablecimientos } from '@/services/establecimientoService'
+import { getEstablecimientosPublic } from '@/services/establecimientoService'
 import { getCategorias } from '@/services/categoriaService'
 import Tarjeta from '@/components/Tarjeta.vue';
 import TarjetaPlaceholder from '@/components/TarjetaPlaceholder.vue';
@@ -48,7 +48,7 @@ const cargarEstablecimientos = async () => {
 
     // establecimientos.value = []
     cargando.value = true;
-    const resultado = await getEstablecimientos(parametrosBusqueda.value)
+    const resultado = await getEstablecimientosPublic(parametrosBusqueda.value)
 
     establecimientos.value = [...establecimientos.value, ...resultado.data]
 

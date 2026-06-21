@@ -4,6 +4,16 @@ import { ref, onMounted, nextTick, watch } from 'vue';
 
 import L from 'leaflet';
 
+
+// Importas las imágenes directamente para que Vite las procese
+import markerIcon from '@/assets/img/marker-icon.png';
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconUrl: markerIcon,
+});
+
 const map = ref(null);
 
 

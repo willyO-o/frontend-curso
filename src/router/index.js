@@ -17,11 +17,27 @@ const router = createRouter({
       path: "/registro",
       name: "Registro",
       component: () => import("@/views/Registro.vue"),
+      beforeEnter: (to, from) => {
+        const token = localStorage.getItem('accessToken')
+
+        if (token) {
+          return '/admin/panel'
+        }
+
+      }
     },
     {
       path: "/login",
       name: "Login",
       component: () => import("@/views/Login.vue"),
+      beforeEnter: (to, from) => {
+        const token = localStorage.getItem('accessToken')
+
+        if (token) {
+          return '/admin/panel'
+        }
+
+      }
     },
 
     {
@@ -45,6 +61,16 @@ const router = createRouter({
           component: () => import("@/views/admin/Formulario.vue"),
         },
       ],
+      beforeEnter: (to, from) => {
+        const token = localStorage.getItem('accessToken')
+        const usuario = localStorage.getItem('usuario')
+
+        if (!token || !usuario) {
+          return '/login'
+        }
+
+      }
+
     },
   ],
 });

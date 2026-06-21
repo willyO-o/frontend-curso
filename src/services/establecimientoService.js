@@ -20,6 +20,15 @@ export const createEstablecimiento = async datos => {
     return respuesta.data;
 }
 
+export const updateEstablecimiento = async (id, datos )=> {
+
+    api.defaults.headers['Content-Type'] = 'multipart/form-data';
+    const respuesta = await api.post('/establecimientos/'+id, datos)
+
+    return respuesta.data;
+}
+
+
 export const deleteEstablecimiento = async id => {
 
     const respuesta = await api.delete('/establecimientos/' + id)

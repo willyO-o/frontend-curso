@@ -21,15 +21,17 @@ import establecimientoValidationSchema from '@/schemas/establecimientoValidation
 import { Form, Field, ErrorMessage } from 'vee-validate'
 
 
-import { createEstablecimiento, getEstablecimientoId } from '@/services/establecimientoService'
+import { createEstablecimiento, getEstablecimientoId, updateEstablecimiento } from '@/services/establecimientoService'
 
 import {notificacionToast, notificacionError} from '@/utils/alertUtil'
 
 import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 
 
 const route = useRoute();
+const router = useRouter();
 
 // Create component
 const FilePond = vueFilePond(
@@ -115,10 +117,25 @@ const guardarEstablecimiento = async () =>{
             formData.append(key, datosFormulario[key])
         } 
 
-        const resultado = await createEstablecimiento(formData)
+        let resultado = null 
+        if( route.params.id){
+            formData.append('_method', 'PUT')
+            resultado = await updateEstablecimiento(route.params.id, formData)
+        }else{
+            resultado = await createEstablecimiento(formData)
+        }
+        
 
         console.log(resultado);
+
+        const { id } = resultado.data
+
+        setTimeout(() => {
+            router.push({name: 'DetalleEstablecimiento', params:{ id }})
+        }, 1500);
+
         notificacionToast(resultado.message)
+
 
     }catch (error) {
         console.log("Error al guardar el establecimiento:", error.response);
@@ -134,8 +151,10 @@ const guardarEstablecimiento = async () =>{
 // edicion de establecimiento
 
 const imagenActual = ref('')
-const nuevasCoordenadas = ref({})
-
+const nuevasCoordenadas = ref({
+    lat: 0,
+    lng: 0
+})
 
 const cargarEstablecimiento =  async () =>{
 
@@ -146,7 +165,7 @@ const cargarEstablecimiento =  async () =>{
     imagenActual.value = resultado.data.url_imagen
     nuevasCoordenadas.value.lat = resultado.data.latitud
     nuevasCoordenadas.value.lng = resultado.data.longitud
-
+    datosFormulario.categoria_id = resultado.data.categoria_id
 }
 
 onMounted(() => {
@@ -238,7 +257,10 @@ onMounted(() => {
 
                                 <div class="mb-3">
                                     <Mapa @actualizar:coordenadas="recibirCoordenadas" 
-                                    :coords="nuevasCoordenadas"  />
+                                    :latitudNueva="nuevasCoordenadas.lat"
+                                    :longitudNueva="nuevasCoordenadas.lng"
+                                    :geolocation="false"
+                                    />
 
                                     <Field type="hidden" name="latitud" v-model="datosFormulario.latitud" />
                                     <Field type="hidden" name="longitud" v-model="datosFormulario.longitud" />

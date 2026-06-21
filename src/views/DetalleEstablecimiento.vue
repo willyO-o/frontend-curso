@@ -20,6 +20,10 @@ import { Field, Form, ErrorMessage } from 'vee-validate'
 
 import { notificacionToast, notificacionError, confirmDialog } from '@/utils/alertUtil'
 
+import userStore from '@/stores/userStore';
+
+
+const usuarioStore = userStore();
 const route = useRoute();
 const establecimiento = ref({
     latitud: 0,
@@ -301,7 +305,9 @@ onUnmounted(() => {
                         </div>
 
 
-                        <div class="col-md-6 mb-3">
+                        <div 
+                            v-if="usuarioStore.estaAutenticado"
+                        class="col-md-6 mb-3">
                             <a href="javascript:void(0)" class="text-decoration-none" @click="mostrarModal()">
                                 <div class="service-card d-flex align-items-center justify-content-center">
                                     <div class="service-icon">
@@ -436,7 +442,10 @@ onUnmounted(() => {
                     <h5 class="sidebar-card-title"><i class="fas fa-map-marked-alt me-2"></i>Location</h5>
                     <div class="sidebar-map">
                         <Mapa :draggable="false"
-                            :coords="{ lat: establecimiento.latitud, lng: establecimiento.longitud }" />
+                            :latitudNueva="establecimiento.latitud"
+                            :longitudNueva="establecimiento.longitud"
+                            :geolocation="false"
+                            />
                     </div>
                 </div>
 

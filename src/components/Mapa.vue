@@ -11,11 +11,20 @@ const marker = ref(null);
 const emit = defineEmits(['actualizar:coordenadas']);
 
 const props = defineProps({
-    coords: {
-        type: Object,
+
+    latitudNueva: {
+        type: Number,
+        required: false,
+    },
+    longitudNueva: {
+        type: Number,
         required: false,
     },
     draggable: {
+        type: Boolean,
+        default: true
+    },
+    geolocation:{
         type: Boolean,
         default: true
     }
@@ -60,6 +69,8 @@ const iniciarMapa = () => {
 
 const obtenerUbicacion = () => {
 
+    if(!props.geolocation) return;
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(posicion => {
 
@@ -81,10 +92,9 @@ const obtenerUbicacion = () => {
 
 
 
-watch(() => props.coords, nuevasCoordenadas => {
+watch(() => [props.latitudNueva, props.longitudNueva], ([lat, lng]) => {
 
-    console.log("nuevas coords", nuevasCoordenadas);
-    const { lat, lng } = nuevasCoordenadas;
+    if (!lat || !lng) return;
 
     map.value.setView([lat, lng], 13);
     if (marker.value) {
@@ -99,7 +109,7 @@ onMounted(() => {
         iniciarMapa();
     })
 
-    if(props.draggable){
+    if (props.draggable) {
         obtenerUbicacion()
     }
 
@@ -116,7 +126,7 @@ onMounted(() => {
 
     <section class="map-banner" id="mapBanner">
 
-        <div id="map-canvas"  :class="{'no-draggable': !props.draggable}" ></div>
+        <div id="map-canvas" :class="{ 'no-draggable': !props.draggable }"></div>
 
         <button type="button" class="map-fullscreen-btn" id="mapToggleBtn" title="Toggle Fullscreen Map">
             <i class="fas fa-expand"></i>
@@ -131,9 +141,8 @@ onMounted(() => {
     min-height: 500px;
 }
 
-#map-canvas.no-draggable{
+#map-canvas.no-draggable {
 
     min-height: 200px;
 }
-
 </style>
